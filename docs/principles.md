@@ -1,10 +1,10 @@
 
 ## Guiding Principles
 
-- The software should be portable and concerns seperated so that a change of hardware or
-  technology for the frontend won't effect the whole stack.
+The software should be portable and concerns seperated so that a change of hardware or
+technology for the frontend won't effect the whole stack.
 
-In order to help acheive these we divide each section of this module into 4 layers (HNCF) similar to MVC for application development. each piece of fuctionality is devided up into each layer and determines how we implement it.
+In order to help this we divide each section of this module into 4 layers (HNCF) similar to MVC for application development. each piece of fuctionality is devided up into each layer and determines how we implement it.
 
 ### Hardware Layer
 
