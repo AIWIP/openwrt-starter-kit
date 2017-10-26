@@ -31,15 +31,14 @@ building our own.
 Most of our code will live in this layer, the Configuration Layer consists of scripts used to setup and
 configure the device.
 
-Each script should try to do one thing and one thing well. In our module we use scripts as an easy way to interface with services on the device and setup things such as OpenVPN and Firewalls.
+Each script should try to do one thing and one thing well. For example you can use scripts as an easy way to interface with services on the device and setup things such as OpenVPN and Firewalls.
 
-Since they are just scripts they are mostly portable, supported in almost every environment and have almost
-no dependencies. By keeping all of our logic in scripts we can easily change the code, technology or hardware with
+Since they are just scripts they are mostly portabld and  supported in almost every environment. By keeping all of our logic in scripts we can easily change the code, technology or hardware with
 minimal re-compilation or dependencies.
 
 ### Frontend Layer
 
-This is what our Users will see when navigating to your device in their browser. This layer
+This is what your Users will see when navigating to your device in their browser. This layer
 provides an easy to use UI which allows them to interact with the scripts in the Configuration Layer.
 
 This layer should be as stateless as possible with all logic belonging to the Configuration Layer. This
