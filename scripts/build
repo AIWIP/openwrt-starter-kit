@@ -1,0 +1,8 @@
+#! /bin/sh
+ENVIRONMENT=${ENVIRONMENT:-'dev'}
+BUILD_FLAGS=${BUILD_FLAGS:-'-j1 V=s'}
+
+echo "Building $@ for $ENVIRONMENT with flags: $BUILD_FLAGS"
+
+vagrant up
+vagrant ssh -c "cd /vagrant && sudo make $@ ENVIRONMENT=$ENVIRONMENT BUILD_FLAGS=\"$BUILD_FLAGS\""

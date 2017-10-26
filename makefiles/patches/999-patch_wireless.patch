@@ -1,0 +1,34 @@
+*** mac80211.sh	Mon Jun  5 15:51:21 2017
+--- mac80211.new.sh	Mon Jun  5 15:53:58 2017
+***************
+*** 116,129 ****
+  			set wireless.radio${devidx}.hwmode=11${mode_band}
+  			${dev_id}
+  			${ht_capab}
+! 			set wireless.radio${devidx}.disabled=1
+  
+  			set wireless.default_radio${devidx}=wifi-iface
+  			set wireless.default_radio${devidx}.device=radio${devidx}
+  			set wireless.default_radio${devidx}.network=lan
+  			set wireless.default_radio${devidx}.mode=ap
+! 			set wireless.default_radio${devidx}.ssid=LEDE
+! 			set wireless.default_radio${devidx}.encryption=none
+  EOF
+  		uci -q commit wireless
+  
+--- 116,130 ----
+  			set wireless.radio${devidx}.hwmode=11${mode_band}
+  			${dev_id}
+  			${ht_capab}
+! 			set wireless.radio${devidx}.disabled=0
+  
+  			set wireless.default_radio${devidx}=wifi-iface
+  			set wireless.default_radio${devidx}.device=radio${devidx}
+  			set wireless.default_radio${devidx}.network=lan
+  			set wireless.default_radio${devidx}.mode=ap
+! 			set wireless.default_radio${devidx}.ssid='MyWireless'
+! 			set wireless.default_radio${devidx}.encryption='psk-mixed'
+! 			set wireless.default_radio${devidx}.key='Letmenin'
+  EOF
+  		uci -q commit wireless
+  

@@ -1,0 +1,45 @@
+#! /bin/sh
+#
+# This script takes a base image created by the Buildbox
+# and turns it into a virtual machine to be be ran by VM
+#
+
+HOST_SSH_PORT=2022
+
+VMNAME="Your-distro"
+BOX_FILE="./bin/$VMNAME.box"
+IMAGE_NAME="my-package"
+IMAGE_VERSION="1"
+IMAGE_FILE="./bin/x86/generic/targets/x86/generic/$IMAGE_NAME-$IMAGE_VERSION-x86-generic-combined-ext4"
+
+VBoxManage showvminfo $VMNAME
+
+echo  $IMAGE_FILE.vdi
+cp $IMAGE_FILE.vdi $IMAGE_FILE.temp.vdi
+
+VBoxManage createvm --name $VMNAME --register && \
+VBoxManage modifyvm $VMNAME \
+    --description "A VM to build an OpenWRT Vagrant box." \
+    --ostype "Linux26" \
+    --memory "128" \
+    --cpus "1" \
+    --nic1 "nat" \
+    --nic1 "intnet" \
+    --nictype1 "82540EM" \
+    --nic2 "nat" \
+    --nictype2 "82540EM" \
+    --natpf2 "ssh,tcp,,$HOST_SSH_PORT,,22" && \
+VBoxManage storagectl $VMNAME \
+    --name "SATA Controller" \
+    --add "sata" \
+    --portcount "4" \
+    --hostiocache "on" \
+    --bootable "on" && \
+VBoxManage storageattach $VMNAME \
+    --storagectl "SATA Controller" \
+    --port "1" \
+    --type "hdd" \
+    --nonrotational "on" \
+    --medium $IMAGE_FILE.temp.vdi
+
+VBoxManage startvm $VMNAME

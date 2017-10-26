@@ -1,0 +1,23 @@
+#! /bin/sh
+#
+# Configures the local machine with the dependencies to build
+# an OpenWRT Image. This is ran by Vagrant on the Guest machine
+#
+
+DEPENDENCIES="quilt git git-core build-essential language-pack-UTF-8 libssl-dev libncurses5-dev unzip gawk zlib1g-dev subversion mercurial"
+
+sudo apt-get update
+
+for dependency in $DEPENDENCIES
+do
+	sudo apt-get install -y $dependency
+done
+
+cat > ~/.quiltrc <<EOF
+QUILT_DIFF_ARGS="--no-timestamps --no-index -p ab --color=auto"
+QUILT_REFRESH_ARGS="--no-timestamps --no-index -p ab"
+QUILT_SERIES_ARGS="--color=auto"
+QUILT_PATCH_OPTS="--unified"
+QUILT_DIFF_OPTS="-p"
+EDITOR="nano"
+EOF

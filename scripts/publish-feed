@@ -1,0 +1,14 @@
+#! /bin/sh
+#
+# This script assumes you have a nginx server serving the `/usr/share/nginx/html/` directory
+#
+
+SSH_URL="ubuntu@myipkg-feed.com"
+
+find ./bin -type d -exec touch {}/index.html \;
+ssh $SSH_URL mkdir -p /tmp/feed
+scp -r bin/* $SSH_URL:/tmp/feed/
+ssh $SSH_URL sudo rm -rf /usr/share/nginx/html/
+ssh $SSH_URL sudo mkdir -p /usr/share/nginx/html/
+ssh $SSH_URL sudo mv /tmp/feed/* /usr/share/nginx/html/
+ssh $SSH_URL sudo chown -R www-data:www-data /usr/share/nginx/html/
