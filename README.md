@@ -13,5 +13,5 @@ project is structured.
 
 ## Documentation
 
-- [Development](docs/development.md)
 - [Principles](docs/principles.md)
+- [Development](docs/development.md)
