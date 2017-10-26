@@ -5,7 +5,7 @@ of OpenwWRT/LEDE for their own IOT device.
 
 ## Getting Started
 
-1. [Vagrant](vagrantup.com) and [VirtualBox](virtualbox.org). 
+1. Install [Vagrant](vagrantup.com) and [VirtualBox](virtualbox.org). 
 2. Download the contents of this repository to the folder for your IOT Project.
 
 ## Documentation
