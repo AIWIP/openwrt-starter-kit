@@ -3,7 +3,7 @@
 This Starter Kit is designed to help other companies build and configure their own distribution
 of OpenwWRT/LEDE for their own IOT device.
 
-You will need Vagrant and Virtual Machine installed.
+You will need Vagrant and VirtualBox installed.
 
 ## Guiding Principles
 
