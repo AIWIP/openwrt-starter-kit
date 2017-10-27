@@ -4,5 +4,6 @@
 #
 
 NAME:=my-first-openwrt-project
+AUTHOR:=your-name
 VERSION:=1
 RELEASE:=1

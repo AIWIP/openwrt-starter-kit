@@ -1,5 +1,5 @@
 include $(TOPDIR)/rules.mk
-include ../manifest.mk
+include /vagrant/manifest.mk
 
 PKG_NAME:=$(NAME)
 PKG_VERSION:=$(VERSION)
@@ -9,10 +9,10 @@ PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 include $(INCLUDE_DIR)/package.mk
 
 define Package/my-package
-  SECTION:=me
-  CATEGORY:=me
+  SECTION:=$(AUTHOR)
+  CATEGORY:=$(AUTHOR)
   TITLE:=$(NAME)
-  URL:=https://www.aiwip.com
+  URL:=https://www.yourdomain.com
   PKGARCH:=all
   DEPENDS:=+luci-base
 endef
@@ -43,12 +43,12 @@ define Package/my-package/install
 	$(CP) $(PKG_BUILD_DIR)/settings/$(ENVIRONMENT).rc $(1)/etc/env.rc
 
 	# Copy Lua Scripts
-	$(INSTALL_DIR) $(1)/usr/lib/lua/luci/
-	$(CP) -r $(PKG_BUILD_DIR)/luasrc/* $(1)/usr/lib/lua/luci/
+	# $(INSTALL_DIR) $(1)/usr/lib/lua/luci/
+	# $(CP) -r $(PKG_BUILD_DIR)/luasrc/* $(1)/usr/lib/lua/luci/
 
 	# Copy Web Frontend Assets
-	$(INSTALL_DIR) $(1)/www/
-	$(CP) -r $(PKG_BUILD_DIR)/htdocs/* $(1)/www/
+	# $(INSTALL_DIR) $(1)/www/
+	# $(CP) -r $(PKG_BUILD_DIR)/htdocs/* $(1)/www/
 
 	# Copy Shell Scripts and Configuration Files
 	$(CP) -r $(PKG_BUILD_DIR)/root/* $(1)/

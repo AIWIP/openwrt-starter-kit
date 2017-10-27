@@ -87,6 +87,7 @@ define preprocess
 	-e "s/\$${NAME}/$(NAME)/" \
 	-e "s/\$${VERSION}/$(VERSION)/" \
 	-e "s/\$${RELEASE}/$(RELEASE)/" \
+	-e "s/\$${AUTHOR}/$(AUTHOR)/" \
 	${1}
 endef
 
