@@ -74,10 +74,19 @@ define prepare_build
 	cat $(PLATFORM_CONFIG_DIR) >> /tmp/$(PLATFORM_NAME).config
 	echo "\n" >> /tmp/$(PLATFORM_NAME).config
 	cat $(SHARED_CONFIG_FILE) >> /tmp/$(PLATFORM_NAME).config
-	preprocess /tmp/$(PLATFORM_NAME).config -o /tmp/$(PLATFORM_NAME).p.config
-	$(CP) /tmp/$(PLATFORM_NAME).p.config $(SOURCE_DIR)/.config
+
+	$(call preprocess,/tmp/$(PLATFORM_NAME).config)
+	$(CP) /tmp/$(PLATFORM_NAME).config $(SOURCE_DIR)/.config
 
 	mkdir -p $(PLATFORM_DIR)
+endef
+
+# Takes a file and preprocesses it
+define preprocess
+	sudo sed -i \
+	-e "s/\$${VERSION}/$(VERSION)/" \
+	-e "s/\$${VERSION}/$(RELEASE)/" \
+	${1}
 endef
 
 # Targets

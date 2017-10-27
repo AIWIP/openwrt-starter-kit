@@ -18,7 +18,7 @@ define Package/my-package
 endef
 
 define Package/my-package/description
- The codebase for the custom code for your IOT DEvice
+ The codebase for the custom code for your IOT Device
 endef
 
 define Build/Prepare

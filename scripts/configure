@@ -4,7 +4,7 @@
 # an OpenWRT Image. This is ran by Vagrant on the Guest machine
 #
 
-DEPENDENCIES="preprocess quilt git git-core build-essential language-pack-UTF-8 libssl-dev libncurses5-dev unzip gawk zlib1g-dev subversion mercurial"
+DEPENDENCIES="quilt git git-core build-essential language-pack-UTF-8 libssl-dev libncurses5-dev unzip gawk zlib1g-dev subversion mercurial"
 
 sudo apt-get update
 
