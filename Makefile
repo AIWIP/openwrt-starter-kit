@@ -84,8 +84,9 @@ endef
 # Takes a file and preprocesses it
 define preprocess
 	sudo sed -i \
+	-e "s/\$${NAME}/$(NAME)/" \
 	-e "s/\$${VERSION}/$(VERSION)/" \
-	-e "s/\$${VERSION}/$(RELEASE)/" \
+	-e "s/\$${RELEASE}/$(RELEASE)/" \
 	${1}
 endef
 

@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 include ../manifest.mk
 
-PKG_NAME:=my-package
+PKG_NAME:=$(NAME)
 PKG_VERSION:=$(VERSION)
 PKG_RELEASE:=$(RELEASE)
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
@@ -11,7 +11,7 @@ include $(INCLUDE_DIR)/package.mk
 define Package/my-package
   SECTION:=me
   CATEGORY:=me
-  TITLE:=My Package
+  TITLE:=$(NAME)
   URL:=https://www.aiwip.com
   PKGARCH:=all
   DEPENDS:=+luci-base
