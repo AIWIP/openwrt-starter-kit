@@ -1,3 +1,4 @@
+include ./manifest.mk
 
 # Directories
 export TOP_DIR:=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
@@ -22,8 +23,6 @@ export FEED_NAME=me
 export PACKAGE_NAME=my-package
 export PACKAGE_CATEGORY=me
 export SDK_NAME=SDK
-
-# Macros
 
 # Imports information for the current platform
 define configure_platform
@@ -75,7 +74,8 @@ define prepare_build
 	cat $(PLATFORM_CONFIG_DIR) >> /tmp/$(PLATFORM_NAME).config
 	echo "\n" >> /tmp/$(PLATFORM_NAME).config
 	cat $(SHARED_CONFIG_FILE) >> /tmp/$(PLATFORM_NAME).config
-	$(CP) /tmp/$(PLATFORM_NAME).config $(SOURCE_DIR)/.config
+	preprocess /tmp/$(PLATFORM_NAME).config -o /tmp/$(PLATFORM_NAME).p.config
+	$(CP) /tmp/$(PLATFORM_NAME).p.config $(SOURCE_DIR)/.config
 
 	mkdir -p $(PLATFORM_DIR)
 endef

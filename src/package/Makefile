@@ -1,8 +1,9 @@
 include $(TOPDIR)/rules.mk
+include ../manifest.mk
 
 PKG_NAME:=my-package
-PKG_VERSION:=1.0
-PKG_RELEASE:=1
+PKG_VERSION:=$(VERSION)
+PKG_RELEASE:=$(RELEASE)
 PKG_BUILD_DIR:=$(BUILD_DIR)/$(PKG_NAME)
 
 include $(INCLUDE_DIR)/package.mk
