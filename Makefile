@@ -1,7 +1,11 @@
-# Manifest.mk 
+# Makefile
 #
 # Change the settings below to customize your image and settings
 #
+
+##########################
+#  Project Configuration #
+##########################
 
 define project/meta
 	NAME:=my-first-openwrt-project
@@ -141,6 +145,10 @@ endef
 
 $(eval $(project/meta))
 
+##########################
+#        Constants       #
+##########################
+
 # Directories
 export TOP_DIR:=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 export BIN_DIR=$(TOP_DIR)/bin
@@ -161,6 +169,10 @@ export FEED_NAME=$(AUTHOR)
 export PACKAGE_NAME=$(NAME)
 export PACKAGE_CATEGORY=$(AUTHOR)
 export SDK_NAME=SDK
+
+##########################
+#        Functions       #
+##########################
 
 # Download Platform
 define platform/download
@@ -253,7 +265,10 @@ define preprocess
 	${1}
 endef
 
-# Targets
+##########################
+#        Targets         #
+##########################
+
 download/%:
 	@echo "Downloading Source For $*..."
 
