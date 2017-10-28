@@ -109,7 +109,6 @@ define project/config
 	CONFIG_PACKAGE_uhttpd=y
 	CONFIG_PACKAGE_usbutils=y
 	CONFIG_PACKAGE_zlib=y
-	CONFIG_SDK=y
 	CONFIG_VDI_IMAGES=y
 	CONFIG_TARGET_EXT4_BLOCKSIZE=4096
 	CONFIG_TARGET_EXT4_BLOCKSIZE_4K=y
@@ -139,6 +138,7 @@ define project/config
 	# CONFIG_PACKAGE_privoxy is not set
 	# CONFIG_PACKAGE_luci-app-privoxy is not set
 	# CONFIG_PER_FEED_REPO_ADD_COMMENTED is not set
+	# CONFIG_SDK is not set
 endef
 
 ##########################
