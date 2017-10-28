@@ -3,10 +3,6 @@
 # Change the settings below to customize your image and settings
 #
 
-##########################
-#  Project Configuration #
-##########################
-
 NAME:=my-first-openwrt-project
 AUTHOR:=your-name
 VERSION:=1
