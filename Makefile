@@ -9,6 +9,8 @@ export BUILD_DIR=/home/vagrant/build_dir
 export FEED_DIR=$(BUILD_DIR)/feed
 export PACKAGE_SRC=$(FEED_DIR)/$(PACKAGE_NAME)
 export PLATFORM_DIR=$(BIN_DIR)/$(PLATFORM_PATH)
+export SOURCE_DIR=$(BUILD_DIR)/platforms/$(PLATFORM_NAME)
+export EXPORT_DIR=$(SOURCE_DIR)/bin
 
 # Commands
 export CP=sudo cp
@@ -21,9 +23,33 @@ export PACKAGE_NAME=$(NAME)
 export PACKAGE_CATEGORY=$(AUTHOR)
 export SDK_NAME=SDK
 
+# Download Platform
+define platform/download
+	$(call download_os)
+	$(call prepare_build)
+endef
+
+# Compile Platform
+define platform/compile
+	# Copy over custom files
+	rm -rf $(SOURCE_DIR)/files/*
+	mkdir -p $(SOURCE_DIR)/files
+	$(CP) -r $(TOP_DIR)/src/image/src/* $(SOURCE_DIR)/files/
+
+	# Build Image
+	$(MAKE) \
+	 SDK_NAME=$(SDK_NAME) \
+	 ENVIRONMENT=$(ENVIRONMENT) \
+	 FORCE_UNSAFE_CONFIGURE=1 \
+	 $(BUILD_FLAGS)
+
+	 # Copy Artifacts into Bin folder
+	 $(CP) -r $(EXPORT_DIR)/* $(PLATFORM_DIR)
+endef
+
 # Imports information for the current platform
 define configure_platform
-	$(eval include makefiles/platforms/$*.mk)
+	$(eval include platforms/$*.mk)
 	$(eval $(platform/$*/meta))
 endef
 
@@ -92,14 +118,12 @@ endef
 download/%:
 	@echo "Downloading Source For $*..."
 
-	$(eval include makefiles/platform.mk)
 	$(call configure_platform)
 	$(call platform/download)
 
 platform/%:
 	@echo "Building Development Platform For $*..."
 	
-	$(eval include makefiles/platform.mk)
 	$(call configure_platform)
 	$(call platform/download)
 	$(call platform/compile)
