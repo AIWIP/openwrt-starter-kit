@@ -7,12 +7,10 @@
 #  Project Configuration #
 ##########################
 
-define project/meta
-	NAME:=my-first-openwrt-project
-	AUTHOR:=your-name
-	VERSION:=1
-	RELEASE:=1
-endef
+NAME:=my-first-openwrt-project
+AUTHOR:=your-name
+VERSION:=1
+RELEASE:=1
 
 define project/config
 	CONFIG_CCACHE=y
@@ -143,8 +141,6 @@ define project/config
 	# CONFIG_PER_FEED_REPO_ADD_COMMENTED is not set
 endef
 
-$(eval $(project/meta))
-
 ##########################
 #        Constants       #
 ##########################
@@ -168,7 +164,6 @@ export MAKE=cd $(SOURCE_DIR) && sudo make
 export FEED_NAME=$(AUTHOR)
 export PACKAGE_NAME=$(NAME)
 export PACKAGE_CATEGORY=$(AUTHOR)
-export SDK_NAME=SDK
 
 ##########################
 #        Functions       #
@@ -189,7 +184,6 @@ define platform/compile
 
 	# Build Image
 	$(MAKE) \
-	 SDK_NAME=$(SDK_NAME) \
 	 ENVIRONMENT=$(ENVIRONMENT) \
 	 FORCE_UNSAFE_CONFIGURE=1 \
 	 $(BUILD_FLAGS)
