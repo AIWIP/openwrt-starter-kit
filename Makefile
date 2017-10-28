@@ -106,7 +106,6 @@ define project/config
 	CONFIG_TARGET_SQUASHFS_BLOCK_SIZE=256
 	CONFIG_TARGET_UBIFS_FREE_SPACE_FIXUP=y
 	CONFIG_TARGET_UBIFS_JOURNAL_SIZE=""
-	CONFIG_TARGET_ROOTFS_TARGZ=y
 
 	CONFIG_IMAGEOPT=y
 	CONFIG_VERSIONOPT=y
@@ -125,6 +124,7 @@ define project/config
 	# CONFIG_PACKAGE_luci-app-privoxy is not set
 	# CONFIG_PER_FEED_REPO_ADD_COMMENTED is not set
 	# CONFIG_SDK is not set
+	# CONFIG_TARGET_ROOTFS_TARGZ is not set
 endef
 
 ##########################
