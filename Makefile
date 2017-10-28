@@ -13,6 +13,8 @@ VERSION:=1
 RELEASE:=1
 
 define project/config
+	CONFIG_PACKAGE_$(NAME)=y
+
 	CONFIG_CCACHE=y
 	CONFIG_LIBCURL_COOKIES=y
 	CONFIG_LIBCURL_FILE=y
@@ -39,19 +41,8 @@ define project/config
 	CONFIG_OPENVPN_openssl_ENABLE_SOCKS=y
 	CONFIG_PACKAGE_avahi-daemon-service-http=y
 	CONFIG_PACKAGE_avahi-dbus-daemon=y
-	CONFIG_PACKAGE_bluez-daemon=y
-	CONFIG_PACKAGE_bluez-libs=y
-	CONFIG_PACKAGE_bluez-utils=y
 	CONFIG_PACKAGE_ca-certificates=y
 	CONFIG_PACKAGE_ca-bundle=y
-	CONFIG_PACKAGE_collectd=y
-	CONFIG_PACKAGE_collectd-mod-cpu=y
-	CONFIG_PACKAGE_collectd-mod-interface=y
-	CONFIG_PACKAGE_collectd-mod-load=y
-	CONFIG_PACKAGE_collectd-mod-memory=y
-	CONFIG_PACKAGE_collectd-mod-network=y
-	CONFIG_PACKAGE_collectd-mod-processes=y
-	CONFIG_PACKAGE_collectd-mod-uptime=y
 	CONFIG_PACKAGE_curl=y
 	CONFIG_PACKAGE_dbus=y
 	CONFIG_PACKAGE_glib2=y
@@ -98,13 +89,8 @@ define project/config
 	CONFIG_PACKAGE_luci-lib-ip=y
 	CONFIG_PACKAGE_luci-lib-jsonc=y
 	CONFIG_PACKAGE_luci-lib-nixio=y
-	CONFIG_PACKAGE_nmap=y
 	CONFIG_PACKAGE_openssl-util=y
-	CONFIG_PACKAGE_openvpn-openssl=y
-	CONFIG_PACKAGE_my-package=y
 	CONFIG_PACKAGE_rpcd=y
-	CONFIG_PACKAGE_snmp-utils=y
-	CONFIG_PACKAGE_tcpdump=y
 	CONFIG_PACKAGE_terminfo=y
 	CONFIG_PACKAGE_uhttpd=y
 	CONFIG_PACKAGE_usbutils=y
