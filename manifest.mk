@@ -124,3 +124,5 @@ define project/config
 	# CONFIG_SDK is not set
 	# CONFIG_TARGET_ROOTFS_TARGZ is not set
 endef
+
+$(eval $(project/meta))

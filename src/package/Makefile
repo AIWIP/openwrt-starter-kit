@@ -1,8 +1,6 @@
 include $(TOPDIR)/rules.mk
 include $(TOPDIR)/manifest.mk
 
-$(eval $(project/meta))
-
 PKG_NAME:=$(NAME)
 PKG_VERSION:=$(VERSION)
 PKG_RELEASE:=$(RELEASE)

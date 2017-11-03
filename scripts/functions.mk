@@ -3,8 +3,6 @@
 # Declares the shared functions
 #
 
-include ../manifest.mk
-
 # Download Steps For Platform
 define platform/download
 	$(call download_os)
