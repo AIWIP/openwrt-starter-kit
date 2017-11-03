@@ -1,1 +1,3 @@
 Put the files you want to end up in your base image here.
+
+This file would end up as `/etc/welcome.txt` on the device.
