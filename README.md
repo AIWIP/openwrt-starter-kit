@@ -1,7 +1,9 @@
 # OpenWRT/LEDE Starter Kit
 
-This Starter Kit is designed to help other companies build and configure their own distribution
-of OpenwWRT/LEDE for their own IOT device.
+This Starter Kit is designed to help other companies build and configure their own distribution of OpenwWRT/LEDE for their own IOT device.
+
+This project will create custom image to flash on your device as well as a custom
+package containing your software.
 
 ## Getting Started
 
