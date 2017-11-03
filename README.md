@@ -13,7 +13,9 @@ To begin building your own customizations, first ensure the platform you are
 targeting exists in the `platforms` folder.
 
 If it doesn't create a new `.mk` file with the name of that platform. The starter kit
-already has pre-defined platforms for x86, Raspberry Pi 2 and the GLI AR300M Router.
+already has an example for the x86 architecture.
+
+Read this example to learn what options are avaliable.
 
 ## Getting Started
 
