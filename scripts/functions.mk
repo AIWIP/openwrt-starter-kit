@@ -3,6 +3,8 @@
 # Declares the shared functions
 #
 
+include ../manifest.mk
+
 # Download Steps For Platform
 define platform/download
 	$(call download_os)
@@ -72,6 +74,7 @@ define prepare_build
 	$(FEEDS) install $(PACKAGE_NAME)
 
 	$(MAKE) defconfig
+	$(eval $(project/meta))
 
 	cat $(SOURCE_DIR)/.config > /tmp/$(PLATFORM_NAME).config
 	echo "\n" >> /tmp/$(PLATFORM_NAME).config
@@ -79,7 +82,6 @@ define prepare_build
 	echo "\n" >> /tmp/$(PLATFORM_NAME).config
 	cat "$(project/config)" >> /tmp/$(PLATFORM_NAME).config
 
-	$(eval $(project/meta))
 	$(call preprocess,/tmp/$(PLATFORM_NAME).config)
 	$(CP) /tmp/$(PLATFORM_NAME).config $(SOURCE_DIR)/.config
 
