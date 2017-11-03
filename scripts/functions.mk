@@ -32,7 +32,8 @@ define configure_platform
 	$(eval $(platform/$*/meta))
 endef
 
-# Downloads the source code for the OS, applies any patches and custom feeds
+# Downloads the source code for the OS, applies any patches, installs custom feeds
+# and moves the manifest file ready for use
 define download_os
 
 	echo "Downloading Operating System..."
@@ -53,6 +54,7 @@ define download_os
 	fi
 
 	cd $(SOURCE_DIR) && git checkout $(OS_SOURCE_VERSION)
+	cp $(TOP_DIR)/manifest.mk $(SOURCE_DIR)
 endef
 
 # Prepares the build by copying files and creating directories needed
@@ -77,6 +79,7 @@ define prepare_build
 	echo "\n" >> /tmp/$(PLATFORM_NAME).config
 	cat "$(project/config)" >> /tmp/$(PLATFORM_NAME).config
 
+	$(eval $(project/meta))
 	$(call preprocess,/tmp/$(PLATFORM_NAME).config)
 	$(CP) /tmp/$(PLATFORM_NAME).config $(SOURCE_DIR)/.config
 

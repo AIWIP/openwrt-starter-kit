@@ -1,5 +1,5 @@
 include $(TOPDIR)/rules.mk
-include /vagrant/manifest.mk
+include $(TOPDIR)/manifest.mk
 
 $(eval $(project/meta))
 
