@@ -3,7 +3,17 @@
 This Starter Kit is designed to help other companies build and configure their own distribution of OpenwWRT/LEDE for their own IOT device.
 
 This project will create custom image to flash on your device as well as a custom
-package containing your software.
+package containing your software for distribution.
+
+## Customizing 
+
+### Platforms
+
+To begin building your own customizations, first ensure the platform you are
+targeting exists in the `platforms` folder.
+
+If it doesn't create a new `.mk` file with the name of that platform. The starter kit
+already has pre-defined platforms for x86, Raspberry Pi 2 and the GLI AR300M Router.
 
 ## Getting Started
 
