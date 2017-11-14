@@ -4,14 +4,14 @@
 # This contains the metadata for this platform
 # such as name and OpenWRT version
 #
-define platform/X86/meta
+define platform/x86/meta
 
 	# Platform Name
 	# 
 	# The name of the platform, this determines the name
 	# used for build folders
 	#
-	PLATFORM_NAME:=X86
+	PLATFORM_NAME:=x86
 
 	# Platform Path
 	#
@@ -40,7 +40,7 @@ endef
 # This contains the platform specific configuration
 # options for the OpenWRT/LEDE `.config` file 
 #
-define platform/X86/config
+define platform/x86/config
 	CONFIG_TARGET_x86=y
 	CONFIG_TARGET_x86_generic=y
 	CONFIG_TARGET_x86_generic_Generic=y
