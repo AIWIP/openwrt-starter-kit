@@ -3,13 +3,52 @@
 # Change the settings below to customize your image and settings
 #
 
+# Project Metadata
+#
+# This contains the metadata for this project
+# such as name and version
+#
 define project/meta
+
+	# Project Name
+	# 
+	# The name of the project, this determines name of package and image
+	#
 	NAME:=my-first-openwrt-project
-	AUTHOR:=your-name
+
+	# Project Author
+	# 
+	# The name of the author of the project, this determines things
+	# such as where the package is located in the feed
+	# 
+	# Note: Can only be contain alphabetical characters
+	#
+	AUTHOR:=yourname
+
+	# Project Version
+	# 
+	# The human readable version string i.e "1.2"
+	#
 	VERSION:=1
+
+	# Project Release Number
+	# 
+	# The iteration number of the image
+	#
 	RELEASE:=1
+
+	# Feed URL
+	# 
+	# The URL to use for new versions of software
+	#
+	FEED_URL:=http://updates.myurl.com
 endef
 
+# Project Config
+#
+# This contains the global project configuration
+# options for the OpenWRT/LEDE `.config` file 
+#
 define project/config
 	CONFIG_PACKAGE_$(NAME)=y
 

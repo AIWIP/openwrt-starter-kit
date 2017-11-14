@@ -3,6 +3,10 @@
 # Please do not change these or this Makefile will break
 #
 
+# Manifest
+include manifest.mk
+$(eval $(project/meta))
+
 # Directories
 export TOP_DIR:=$(dir $(realpath $(firstword $(MAKEFILE_LIST))))
 export BIN_DIR=$(TOP_DIR)/bin
@@ -70,7 +74,7 @@ define download_os
 		cd $(SOURCE_DIR) && sudo quilt push -a; \
 		\
 		$(CP) $(SOURCE_DIR)/feeds.conf.default $(SOURCE_DIR)/feeds.conf; \
-		echo "src-link $(FEED_NAME) $(FEED_DIR)" >> $(SOURCE_DIR)/feeds.conf; \
+		echo "src-link $(FEED_NAME) $(FEED_URL)" >> $(SOURCE_DIR)/feeds.conf; \
 	fi
 
 	cd $(SOURCE_DIR) && git checkout $(OS_SOURCE_VERSION)
@@ -92,7 +96,6 @@ define prepare_build
 	$(FEEDS) install $(PACKAGE_NAME)
 
 	$(MAKE) defconfig
-	$(eval $(project/meta))
 
 	cat $(SOURCE_DIR)/.config > /tmp/$(PLATFORM_NAME).config
 	echo "\n" >> /tmp/$(PLATFORM_NAME).config

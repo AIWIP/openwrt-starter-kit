@@ -35,7 +35,7 @@ define platform/x86/meta
 	OS_SOURCE_VERSION:=v17.01.1
 endef
 
-# Platform Metadata
+# Platform Config
 #
 # This contains the platform specific configuration
 # options for the OpenWRT/LEDE `.config` file 

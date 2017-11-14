@@ -2,7 +2,8 @@
 #
 # This script assumes you have a simple HTTP server serving the WWW_LOCATION directory
 #
-
+# TODO: Use details from manifest
+#
 SSH_URL="ubuntu@myipkg-feed.com"
 WWW_LOCATION="/usr/share/nginx/html/"
 
