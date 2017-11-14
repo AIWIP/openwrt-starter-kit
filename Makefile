@@ -22,9 +22,6 @@ export MAKE=cd $(SOURCE_DIR) && sudo make
 export FEED_NAME=$(AUTHOR)
 export PACKAGE_NAME=$(NAME)
 export PACKAGE_CATEGORY=$(AUTHOR)
-include scripts/functions.mk
-include scripts/targets.mk
-
 
 # Download Steps For Platform
 define platform/download
